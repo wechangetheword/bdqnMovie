@@ -1,13 +1,15 @@
-package cn.bms.mservice;
+package cn.bms.service.impl;
 
+import cn.bms.dao.TimeTableDao;
+import cn.bms.pojo.TimeTable;
+import cn.bms.service.TimeTableService;
 import org.springframework.stereotype.Service;
+
 import javax.annotation.Resource;
 import java.util.List;
-import cn.bms.pojo.TimeTable;
-import cn.bms.dao.TimeTableDao;
 
-@Service
-public class TimeTableService {
+@Service("timeTableServiceimpl")
+public class TimeTableServiceimpl implements TimeTableService {
 
     @Resource
     private TimeTableDao timeTableDao;

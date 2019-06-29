@@ -1,13 +1,15 @@
-package cn.bms.mservice;
+package cn.bms.service.impl;
 
+import cn.bms.dao.HallSeatTableDao;
+import cn.bms.pojo.HallSeatTable;
+import cn.bms.service.HallSeatTableService;
 import org.springframework.stereotype.Service;
+
 import javax.annotation.Resource;
 import java.util.List;
-import cn.bms.pojo.HallSeatTable;
-import cn.bms.dao.HallSeatTableDao;
 
-@Service
-public class HallSeatTableService {
+@Service("hallSeatTableServiceimpl")
+public class HallSeatTableServiceimpl implements HallSeatTableService {
 
     @Resource
     private HallSeatTableDao hallSeatTableDao;

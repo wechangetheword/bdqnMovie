@@ -1,13 +1,15 @@
-package cn.bms.mservice;
+package cn.bms.service.impl;
 
+import cn.bms.dao.CinemaTableDao;
+import cn.bms.pojo.CinemaTable;
+import cn.bms.service.CinemaTableService;
 import org.springframework.stereotype.Service;
+
 import javax.annotation.Resource;
 import java.util.List;
-import cn.bms.pojo.CinemaTable;
-import cn.bms.dao.CinemaTableDao;
 
-@Service
-public class CinemaTableService {
+@Service("cinemaTableServiceimpl")
+public class CinemaTableServiceimpl implements CinemaTableService {
 
     @Resource
     private CinemaTableDao cinemaTableDao;

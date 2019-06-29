@@ -1,13 +1,15 @@
-package cn.bms.mservice;
+package cn.bms.service.impl;
 
+import cn.bms.dao.SeatTableDao;
+import cn.bms.pojo.SeatTable;
+import cn.bms.service.SeatTableService;
 import org.springframework.stereotype.Service;
+
 import javax.annotation.Resource;
 import java.util.List;
-import cn.bms.pojo.SeatTable;
-import cn.bms.dao.SeatTableDao;
 
-@Service
-public class SeatTableService {
+@Service("seatTableServiceimpl")
+public class SeatTableServiceimpl implements SeatTableService {
 
     @Resource
     private SeatTableDao seatTableDao;

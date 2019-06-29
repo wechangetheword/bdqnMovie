@@ -1,13 +1,15 @@
-package cn.bms.mservice;
+package cn.bms.service.impl;
 
+import cn.bms.dao.AdminTableDao;
+import cn.bms.pojo.AdminTable;
+import cn.bms.service.AdminTableService;
 import org.springframework.stereotype.Service;
+
 import javax.annotation.Resource;
 import java.util.List;
-import cn.bms.pojo.AdminTable;
-import cn.bms.dao.AdminTableDao;
 
-@Service
-public class AdminTableService {
+@Service("adminTableServiceimpl")
+public class AdminTableServiceimpl implements AdminTableService {
 
     @Resource
     private AdminTableDao adminTableDao;

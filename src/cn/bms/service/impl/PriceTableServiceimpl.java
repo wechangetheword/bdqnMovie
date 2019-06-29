@@ -1,13 +1,15 @@
-package cn.bms.mservice;
+package cn.bms.service.impl;
 
+import cn.bms.dao.PriceTableDao;
+import cn.bms.pojo.PriceTable;
+import cn.bms.service.PriceTableService;
 import org.springframework.stereotype.Service;
+
 import javax.annotation.Resource;
 import java.util.List;
-import cn.bms.pojo.PriceTable;
-import cn.bms.dao.PriceTableDao;
 
-@Service
-public class PriceTableService {
+@Service("priceTableServiceimpl")
+public class PriceTableServiceimpl implements PriceTableService {
 
     @Resource
     private PriceTableDao priceTableDao;

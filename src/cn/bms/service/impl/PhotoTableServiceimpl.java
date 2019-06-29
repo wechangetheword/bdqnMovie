@@ -1,13 +1,15 @@
-package cn.bms.mservice;
+package cn.bms.service.impl;
 
+import cn.bms.dao.PhotoTableDao;
+import cn.bms.pojo.PhotoTable;
+import cn.bms.service.PhotoTableService;
 import org.springframework.stereotype.Service;
+
 import javax.annotation.Resource;
 import java.util.List;
-import cn.bms.pojo.PhotoTable;
-import cn.bms.dao.PhotoTableDao;
 
-@Service
-public class PhotoTableService {
+@Service("photoTableServiceimpl")
+public class PhotoTableServiceimpl implements PhotoTableService {
 
     @Resource
     private PhotoTableDao photoTableDao;

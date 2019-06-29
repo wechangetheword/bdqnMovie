@@ -1,13 +1,15 @@
-package cn.bms.mservice;
+package cn.bms.service.impl;
 
+import cn.bms.dao.OrderTableDao;
+import cn.bms.pojo.OrderTable;
+import cn.bms.service.OrderTableService;
 import org.springframework.stereotype.Service;
+
 import javax.annotation.Resource;
 import java.util.List;
-import cn.bms.pojo.OrderTable;
-import cn.bms.dao.OrderTableDao;
 
-@Service
-public class OrderTableService {
+@Service("orderTableServiceimpl")
+public class OrderTableServiceimpl implements OrderTableService {
 
     @Resource
     private OrderTableDao orderTableDao;

@@ -1,13 +1,15 @@
-package cn.bms.mservice;
+package cn.bms.service.impl;
 
+import cn.bms.dao.DateTableDao;
+import cn.bms.pojo.DateTable;
+import cn.bms.service.DateTableService;
 import org.springframework.stereotype.Service;
+
 import javax.annotation.Resource;
 import java.util.List;
-import cn.bms.pojo.DateTable;
-import cn.bms.dao.DateTableDao;
 
-@Service
-public class DateTableService {
+@Service("dateTableServiceimpl")
+public class DateTableServiceimpl implements DateTableService {
 
     @Resource
     private DateTableDao dateTableDao;

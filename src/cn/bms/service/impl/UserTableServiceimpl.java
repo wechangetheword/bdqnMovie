@@ -1,13 +1,15 @@
-package cn.bms.mservice;
+package cn.bms.service.impl;
 
+import cn.bms.dao.UserTableDao;
+import cn.bms.pojo.UserTable;
+import cn.bms.service.UserTableService;
 import org.springframework.stereotype.Service;
+
 import javax.annotation.Resource;
 import java.util.List;
-import cn.bms.pojo.UserTable;
-import cn.bms.dao.UserTableDao;
 
-@Service
-public class UserTableService {
+@Service("userTableServiceimpl")
+public class UserTableServiceimpl implements UserTableService {
 
     @Resource
     private UserTableDao userTableDao;
