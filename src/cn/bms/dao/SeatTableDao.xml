@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.bms.dao.SeatTableDao">
+
+<!--auto generated Code-->
+    <resultMap id="AllColumnMap" type="cn.bms.pojo.SeatTable">
+        <result column="id" property="id"/>
+        <result column="time_id" property="timeId"/>
+        <result column="seat_row" property="seatRow"/>
+        <result column="seat_order_number" property="seatOrderNumber"/>
+        <result column="hall_id" property="hallId"/>
+        <result column="seat_static" property="seatStatic"/>
+        <result column="seat_create" property="seatCreate"/>
+        <result column="seat_modified" property="seatModified"/>
+    </resultMap>
+
+<!--auto generated Code-->
+    <sql id="all_column">
+        id,
+        time_id,
+        seat_row,
+        seat_order_number,
+        hall_id,
+        seat_static,
+        seat_create,
+        seat_modified
+    </sql>
+
+<!--auto generated Code-->
+    <insert id="insert">
+        INSERT INTO seat_table
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null"> id, </if>
+            <if test="pojo.timeId != null"> time_id, </if>
+            <if test="pojo.seatRow != null"> seat_row, </if>
+            <if test="pojo.seatOrderNumber != null"> seat_order_number, </if>
+            <if test="pojo.hallId != null"> hall_id, </if>
+            <if test="pojo.seatStatic != null"> seat_static, </if>
+            <if test="pojo.seatCreate != null"> seat_create, </if>
+            <if test="pojo.seatModified != null"> seat_modified, </if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null"> #{pojo.id}, </if>
+            <if test="pojo.timeId != null"> #{pojo.timeId}, </if>
+            <if test="pojo.seatRow != null"> #{pojo.seatRow}, </if>
+            <if test="pojo.seatOrderNumber != null"> #{pojo.seatOrderNumber}, </if>
+            <if test="pojo.hallId != null"> #{pojo.hallId}, </if>
+            <if test="pojo.seatStatic != null"> #{pojo.seatStatic}, </if>
+            <if test="pojo.seatCreate != null"> #{pojo.seatCreate}, </if>
+            <if test="pojo.seatModified != null"> #{pojo.seatModified}, </if>
+        </trim>
+    </insert>
+
+<!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO seat_table(
+        <include refid="all_column"/>
+        )VALUES
+        <foreach collection="pojos" item="pojo" index="index" separator=",">
+            (
+            #{pojo.id},
+            #{pojo.timeId},
+            #{pojo.seatRow},
+            #{pojo.seatOrderNumber},
+            #{pojo.hallId},
+            #{pojo.seatStatic},
+            #{pojo.seatCreate},
+            #{pojo.seatModified}
+            )
+        </foreach>
+    </insert>
+
+<!--auto generated Code-->
+    <update id="update">
+        UPDATE seat_table
+        <set>
+            <if test="pojo.id != null"> id = #{pojo.id}, </if>
+            <if test="pojo.timeId != null"> time_id = #{pojo.timeId}, </if>
+            <if test="pojo.seatRow != null"> seat_row = #{pojo.seatRow}, </if>
+            <if test="pojo.seatOrderNumber != null"> seat_order_number = #{pojo.seatOrderNumber}, </if>
+            <if test="pojo.hallId != null"> hall_id = #{pojo.hallId}, </if>
+            <if test="pojo.seatStatic != null"> seat_static = #{pojo.seatStatic}, </if>
+            <if test="pojo.seatCreate != null"> seat_create = #{pojo.seatCreate}, </if>
+            <if test="pojo.seatModified != null"> seat_modified = #{pojo.seatModified} </if>
+        </set>
+         WHERE id = #{pojo.id}
+    </update>
+
+<!--auto generated Code-->
+    <select id="select" resultMap="AllColumnMap">
+        SELECT <include refid="all_column"/>
+        FROM seat_table
+        <where>
+            <if test="pojo.id != null"> AND id = #{pojo.id} </if>
+            <if test="pojo.timeId != null"> AND time_id = #{pojo.timeId} </if>
+            <if test="pojo.seatRow != null"> AND seat_row = #{pojo.seatRow} </if>
+            <if test="pojo.seatOrderNumber != null"> AND seat_order_number = #{pojo.seatOrderNumber} </if>
+            <if test="pojo.hallId != null"> AND hall_id = #{pojo.hallId} </if>
+            <if test="pojo.seatStatic != null"> AND seat_static = #{pojo.seatStatic} </if>
+            <if test="pojo.seatCreate != null"> AND seat_create = #{pojo.seatCreate} </if>
+            <if test="pojo.seatModified != null"> AND seat_modified = #{pojo.seatModified} </if>
+        </where>
+        LIMIT 1000 
+    </select>
+
+<!--auto generated Code-->
+    <delete id="delete">
+        DELETE FROM seat_table where id = #{id}
+    </delete>
+</mapper>

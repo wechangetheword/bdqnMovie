@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.bms.dao.OrderTableDao">
+
+<!--auto generated Code-->
+    <resultMap id="AllColumnMap" type="cn.bms.pojo.OrderTable">
+        <result column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="movie_id" property="movieId"/>
+        <result column="cinema_id" property="cinemaId"/>
+        <result column="time_id" property="timeId"/>
+        <result column="hall_id" property="hallId"/>
+        <result column="seat_id" property="seatId"/>
+        <result column="price" property="price"/>
+        <result column="total_price" property="totalPrice"/>
+        <result column="order_create" property="orderCreate"/>
+        <result column="order_modified" property="orderModified"/>
+    </resultMap>
+
+<!--auto generated Code-->
+    <sql id="all_column">
+        id,
+        user_id,
+        movie_id,
+        cinema_id,
+        time_id,
+        hall_id,
+        seat_id,
+        price,
+        total_price,
+        order_create,
+        order_modified
+    </sql>
+
+<!--auto generated Code-->
+    <insert id="insert">
+        INSERT INTO order_table
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null"> id, </if>
+            <if test="pojo.userId != null"> user_id, </if>
+            <if test="pojo.movieId != null"> movie_id, </if>
+            <if test="pojo.cinemaId != null"> cinema_id, </if>
+            <if test="pojo.timeId != null"> time_id, </if>
+            <if test="pojo.hallId != null"> hall_id, </if>
+            <if test="pojo.seatId != null"> seat_id, </if>
+            <if test="pojo.price != null"> price, </if>
+            <if test="pojo.totalPrice != null"> total_price, </if>
+            <if test="pojo.orderCreate != null"> order_create, </if>
+            <if test="pojo.orderModified != null"> order_modified, </if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null"> #{pojo.id}, </if>
+            <if test="pojo.userId != null"> #{pojo.userId}, </if>
+            <if test="pojo.movieId != null"> #{pojo.movieId}, </if>
+            <if test="pojo.cinemaId != null"> #{pojo.cinemaId}, </if>
+            <if test="pojo.timeId != null"> #{pojo.timeId}, </if>
+            <if test="pojo.hallId != null"> #{pojo.hallId}, </if>
+            <if test="pojo.seatId != null"> #{pojo.seatId}, </if>
+            <if test="pojo.price != null"> #{pojo.price}, </if>
+            <if test="pojo.totalPrice != null"> #{pojo.totalPrice}, </if>
+            <if test="pojo.orderCreate != null"> #{pojo.orderCreate}, </if>
+            <if test="pojo.orderModified != null"> #{pojo.orderModified}, </if>
+        </trim>
+    </insert>
+
+<!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO order_table(
+        <include refid="all_column"/>
+        )VALUES
+        <foreach collection="pojos" item="pojo" index="index" separator=",">
+            (
+            #{pojo.id},
+            #{pojo.userId},
+            #{pojo.movieId},
+            #{pojo.cinemaId},
+            #{pojo.timeId},
+            #{pojo.hallId},
+            #{pojo.seatId},
+            #{pojo.price},
+            #{pojo.totalPrice},
+            #{pojo.orderCreate},
+            #{pojo.orderModified}
+            )
+        </foreach>
+    </insert>
+
+<!--auto generated Code-->
+    <update id="update">
+        UPDATE order_table
+        <set>
+            <if test="pojo.id != null"> id = #{pojo.id}, </if>
+            <if test="pojo.userId != null"> user_id = #{pojo.userId}, </if>
+            <if test="pojo.movieId != null"> movie_id = #{pojo.movieId}, </if>
+            <if test="pojo.cinemaId != null"> cinema_id = #{pojo.cinemaId}, </if>
+            <if test="pojo.timeId != null"> time_id = #{pojo.timeId}, </if>
+            <if test="pojo.hallId != null"> hall_id = #{pojo.hallId}, </if>
+            <if test="pojo.seatId != null"> seat_id = #{pojo.seatId}, </if>
+            <if test="pojo.price != null"> price = #{pojo.price}, </if>
+            <if test="pojo.totalPrice != null"> total_price = #{pojo.totalPrice}, </if>
+            <if test="pojo.orderCreate != null"> order_create = #{pojo.orderCreate}, </if>
+            <if test="pojo.orderModified != null"> order_modified = #{pojo.orderModified} </if>
+        </set>
+         WHERE id = #{pojo.id}
+    </update>
+
+<!--auto generated Code-->
+    <select id="select" resultMap="AllColumnMap">
+        SELECT <include refid="all_column"/>
+        FROM order_table
+        <where>
+            <if test="pojo.id != null"> AND id = #{pojo.id} </if>
+            <if test="pojo.userId != null"> AND user_id = #{pojo.userId} </if>
+            <if test="pojo.movieId != null"> AND movie_id = #{pojo.movieId} </if>
+            <if test="pojo.cinemaId != null"> AND cinema_id = #{pojo.cinemaId} </if>
+            <if test="pojo.timeId != null"> AND time_id = #{pojo.timeId} </if>
+            <if test="pojo.hallId != null"> AND hall_id = #{pojo.hallId} </if>
+            <if test="pojo.seatId != null"> AND seat_id = #{pojo.seatId} </if>
+            <if test="pojo.price != null"> AND price = #{pojo.price} </if>
+            <if test="pojo.totalPrice != null"> AND total_price = #{pojo.totalPrice} </if>
+            <if test="pojo.orderCreate != null"> AND order_create = #{pojo.orderCreate} </if>
+            <if test="pojo.orderModified != null"> AND order_modified = #{pojo.orderModified} </if>
+        </where>
+        LIMIT 1000 
+    </select>
+
+<!--auto generated Code-->
+    <delete id="delete">
+        DELETE FROM order_table where id = #{id}
+    </delete>
+</mapper>

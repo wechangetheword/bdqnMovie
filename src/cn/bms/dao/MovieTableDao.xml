@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.bms.dao.MovieTableDao">
+
+<!--auto generated Code-->
+    <resultMap id="AllColumnMap" type="cn.bms.pojo.MovieTable">
+        <result column="id" property="id"/>
+        <result column="movie_name" property="movieName"/>
+        <result column="english_name" property="englishName"/>
+        <result column="movie_datetime" property="movieDatetime"/>
+        <result column="movie_type" property="movieType"/>
+        <result column="movie3d" property="movie3d"/>
+        <result column="movie_imax" property="movieImax"/>
+        <result column="movie_score" property="movieScore"/>
+        <result column="movie_img" property="movieImg"/>
+        <result column="movie_carousel" property="movieCarousel"/>
+        <result column="movie_introduction" property="movieIntroduction"/>
+        <result column="movie_duration" property="movieDuration"/>
+        <result column="movie_create" property="movieCreate"/>
+        <result column="movie_modified" property="movieModified"/>
+    </resultMap>
+
+<!--auto generated Code-->
+    <sql id="all_column">
+        id,
+        movie_name,
+        english_name,
+        movie_datetime,
+        movie_type,
+        movie3d,
+        movie_imax,
+        movie_score,
+        movie_img,
+        movie_carousel,
+        movie_introduction,
+        movie_duration,
+        movie_create,
+        movie_modified
+    </sql>
+
+<!--auto generated Code-->
+    <insert id="insert">
+        INSERT INTO movie_table
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null"> id, </if>
+            <if test="pojo.movieName != null"> movie_name, </if>
+            <if test="pojo.englishName != null"> english_name, </if>
+            <if test="pojo.movieDatetime != null"> movie_datetime, </if>
+            <if test="pojo.movieType != null"> movie_type, </if>
+            <if test="pojo.movie3d != null"> movie3d, </if>
+            <if test="pojo.movieImax != null"> movie_imax, </if>
+            <if test="pojo.movieScore != null"> movie_score, </if>
+            <if test="pojo.movieImg != null"> movie_img, </if>
+            <if test="pojo.movieCarousel != null"> movie_carousel, </if>
+            <if test="pojo.movieIntroduction != null"> movie_introduction, </if>
+            <if test="pojo.movieDuration != null"> movie_duration, </if>
+            <if test="pojo.movieCreate != null"> movie_create, </if>
+            <if test="pojo.movieModified != null"> movie_modified, </if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null"> #{pojo.id}, </if>
+            <if test="pojo.movieName != null"> #{pojo.movieName}, </if>
+            <if test="pojo.englishName != null"> #{pojo.englishName}, </if>
+            <if test="pojo.movieDatetime != null"> #{pojo.movieDatetime}, </if>
+            <if test="pojo.movieType != null"> #{pojo.movieType}, </if>
+            <if test="pojo.movie3d != null"> #{pojo.movie3d}, </if>
+            <if test="pojo.movieImax != null"> #{pojo.movieImax}, </if>
+            <if test="pojo.movieScore != null"> #{pojo.movieScore}, </if>
+            <if test="pojo.movieImg != null"> #{pojo.movieImg}, </if>
+            <if test="pojo.movieCarousel != null"> #{pojo.movieCarousel}, </if>
+            <if test="pojo.movieIntroduction != null"> #{pojo.movieIntroduction}, </if>
+            <if test="pojo.movieDuration != null"> #{pojo.movieDuration}, </if>
+            <if test="pojo.movieCreate != null"> #{pojo.movieCreate}, </if>
+            <if test="pojo.movieModified != null"> #{pojo.movieModified}, </if>
+        </trim>
+    </insert>
+
+<!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO movie_table(
+        <include refid="all_column"/>
+        )VALUES
+        <foreach collection="pojos" item="pojo" index="index" separator=",">
+            (
+            #{pojo.id},
+            #{pojo.movieName},
+            #{pojo.englishName},
+            #{pojo.movieDatetime},
+            #{pojo.movieType},
+            #{pojo.movie3d},
+            #{pojo.movieImax},
+            #{pojo.movieScore},
+            #{pojo.movieImg},
+            #{pojo.movieCarousel},
+            #{pojo.movieIntroduction},
+            #{pojo.movieDuration},
+            #{pojo.movieCreate},
+            #{pojo.movieModified}
+            )
+        </foreach>
+    </insert>
+
+<!--auto generated Code-->
+    <update id="update">
+        UPDATE movie_table
+        <set>
+            <if test="pojo.id != null"> id = #{pojo.id}, </if>
+            <if test="pojo.movieName != null"> movie_name = #{pojo.movieName}, </if>
+            <if test="pojo.englishName != null"> english_name = #{pojo.englishName}, </if>
+            <if test="pojo.movieDatetime != null"> movie_datetime = #{pojo.movieDatetime}, </if>
+            <if test="pojo.movieType != null"> movie_type = #{pojo.movieType}, </if>
+            <if test="pojo.movie3d != null"> movie3d = #{pojo.movie3d}, </if>
+            <if test="pojo.movieImax != null"> movie_imax = #{pojo.movieImax}, </if>
+            <if test="pojo.movieScore != null"> movie_score = #{pojo.movieScore}, </if>
+            <if test="pojo.movieImg != null"> movie_img = #{pojo.movieImg}, </if>
+            <if test="pojo.movieCarousel != null"> movie_carousel = #{pojo.movieCarousel}, </if>
+            <if test="pojo.movieIntroduction != null"> movie_introduction = #{pojo.movieIntroduction}, </if>
+            <if test="pojo.movieDuration != null"> movie_duration = #{pojo.movieDuration}, </if>
+            <if test="pojo.movieCreate != null"> movie_create = #{pojo.movieCreate}, </if>
+            <if test="pojo.movieModified != null"> movie_modified = #{pojo.movieModified} </if>
+        </set>
+         WHERE id = #{pojo.id}
+    </update>
+
+<!--auto generated Code-->
+    <select id="select" resultMap="AllColumnMap">
+        SELECT <include refid="all_column"/>
+        FROM movie_table
+        <where>
+            <if test="pojo.id != null"> AND id = #{pojo.id} </if>
+            <if test="pojo.movieName != null"> AND movie_name = #{pojo.movieName} </if>
+            <if test="pojo.englishName != null"> AND english_name = #{pojo.englishName} </if>
+            <if test="pojo.movieDatetime != null"> AND movie_datetime = #{pojo.movieDatetime} </if>
+            <if test="pojo.movieType != null"> AND movie_type = #{pojo.movieType} </if>
+            <if test="pojo.movie3d != null"> AND movie3d = #{pojo.movie3d} </if>
+            <if test="pojo.movieImax != null"> AND movie_imax = #{pojo.movieImax} </if>
+            <if test="pojo.movieScore != null"> AND movie_score = #{pojo.movieScore} </if>
+            <if test="pojo.movieImg != null"> AND movie_img = #{pojo.movieImg} </if>
+            <if test="pojo.movieCarousel != null"> AND movie_carousel = #{pojo.movieCarousel} </if>
+            <if test="pojo.movieIntroduction != null"> AND movie_introduction = #{pojo.movieIntroduction} </if>
+            <if test="pojo.movieDuration != null"> AND movie_duration = #{pojo.movieDuration} </if>
+            <if test="pojo.movieCreate != null"> AND movie_create = #{pojo.movieCreate} </if>
+            <if test="pojo.movieModified != null"> AND movie_modified = #{pojo.movieModified} </if>
+        </where>
+        LIMIT 1000 
+    </select>
+
+<!--auto generated Code-->
+    <delete id="delete">
+        DELETE FROM movie_table where id = #{id}
+    </delete>
+</mapper>

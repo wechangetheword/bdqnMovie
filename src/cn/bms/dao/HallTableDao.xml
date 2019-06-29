@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.bms.dao.HallTableDao">
+
+<!--auto generated Code-->
+    <resultMap id="AllColumnMap" type="cn.bms.pojo.HallTable">
+        <result column="id" property="id"/>
+        <result column="hall_number" property="hallNumber"/>
+        <result column="cinema_id" property="cinemaId"/>
+        <result column="seat_number" property="seatNumber"/>
+        <result column="hall_create" property="hallCreate"/>
+        <result column="hall_modified" property="hallModified"/>
+    </resultMap>
+
+<!--auto generated Code-->
+    <sql id="all_column">
+        id,
+        hall_number,
+        cinema_id,
+        seat_number,
+        hall_create,
+        hall_modified
+    </sql>
+
+<!--auto generated Code-->
+    <insert id="insert">
+        INSERT INTO hall_table
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null"> id, </if>
+            <if test="pojo.hallNumber != null"> hall_number, </if>
+            <if test="pojo.cinemaId != null"> cinema_id, </if>
+            <if test="pojo.seatNumber != null"> seat_number, </if>
+            <if test="pojo.hallCreate != null"> hall_create, </if>
+            <if test="pojo.hallModified != null"> hall_modified, </if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null"> #{pojo.id}, </if>
+            <if test="pojo.hallNumber != null"> #{pojo.hallNumber}, </if>
+            <if test="pojo.cinemaId != null"> #{pojo.cinemaId}, </if>
+            <if test="pojo.seatNumber != null"> #{pojo.seatNumber}, </if>
+            <if test="pojo.hallCreate != null"> #{pojo.hallCreate}, </if>
+            <if test="pojo.hallModified != null"> #{pojo.hallModified}, </if>
+        </trim>
+    </insert>
+
+<!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO hall_table(
+        <include refid="all_column"/>
+        )VALUES
+        <foreach collection="pojos" item="pojo" index="index" separator=",">
+            (
+            #{pojo.id},
+            #{pojo.hallNumber},
+            #{pojo.cinemaId},
+            #{pojo.seatNumber},
+            #{pojo.hallCreate},
+            #{pojo.hallModified}
+            )
+        </foreach>
+    </insert>
+
+<!--auto generated Code-->
+    <update id="update">
+        UPDATE hall_table
+        <set>
+            <if test="pojo.id != null"> id = #{pojo.id}, </if>
+            <if test="pojo.hallNumber != null"> hall_number = #{pojo.hallNumber}, </if>
+            <if test="pojo.cinemaId != null"> cinema_id = #{pojo.cinemaId}, </if>
+            <if test="pojo.seatNumber != null"> seat_number = #{pojo.seatNumber}, </if>
+            <if test="pojo.hallCreate != null"> hall_create = #{pojo.hallCreate}, </if>
+            <if test="pojo.hallModified != null"> hall_modified = #{pojo.hallModified} </if>
+        </set>
+         WHERE id = #{pojo.id}
+    </update>
+
+<!--auto generated Code-->
+    <select id="select" resultMap="AllColumnMap">
+        SELECT <include refid="all_column"/>
+        FROM hall_table
+        <where>
+            <if test="pojo.id != null"> AND id = #{pojo.id} </if>
+            <if test="pojo.hallNumber != null"> AND hall_number = #{pojo.hallNumber} </if>
+            <if test="pojo.cinemaId != null"> AND cinema_id = #{pojo.cinemaId} </if>
+            <if test="pojo.seatNumber != null"> AND seat_number = #{pojo.seatNumber} </if>
+            <if test="pojo.hallCreate != null"> AND hall_create = #{pojo.hallCreate} </if>
+            <if test="pojo.hallModified != null"> AND hall_modified = #{pojo.hallModified} </if>
+        </where>
+        LIMIT 1000 
+    </select>
+
+<!--auto generated Code-->
+    <delete id="delete">
+        DELETE FROM hall_table where id = #{id}
+    </delete>
+</mapper>

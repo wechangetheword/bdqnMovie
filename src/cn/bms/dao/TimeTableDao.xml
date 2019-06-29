@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.bms.dao.TimeTableDao">
+
+<!--auto generated Code-->
+    <resultMap id="AllColumnMap" type="cn.bms.pojo.TimeTable">
+        <result column="id" property="id"/>
+        <result column="time_time" property="timeTime"/>
+        <result column="hall_id" property="hallId"/>
+        <result column="movie_id" property="movieId"/>
+        <result column="choosed_seat" property="choosedSeat"/>
+        <result column="unchoosed_seat" property="unchoosedSeat"/>
+        <result column="sale_seat" property="saleSeat"/>
+        <result column="time_create" property="timeCreate"/>
+        <result column="time_modified" property="timeModified"/>
+    </resultMap>
+
+<!--auto generated Code-->
+    <sql id="all_column">
+        id,
+        time_time,
+        hall_id,
+        movie_id,
+        choosed_seat,
+        unchoosed_seat,
+        sale_seat,
+        time_create,
+        time_modified
+    </sql>
+
+<!--auto generated Code-->
+    <insert id="insert">
+        INSERT INTO time_table
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null"> id, </if>
+            <if test="pojo.timeTime != null"> time_time, </if>
+            <if test="pojo.hallId != null"> hall_id, </if>
+            <if test="pojo.movieId != null"> movie_id, </if>
+            <if test="pojo.choosedSeat != null"> choosed_seat, </if>
+            <if test="pojo.unchoosedSeat != null"> unchoosed_seat, </if>
+            <if test="pojo.saleSeat != null"> sale_seat, </if>
+            <if test="pojo.timeCreate != null"> time_create, </if>
+            <if test="pojo.timeModified != null"> time_modified, </if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null"> #{pojo.id}, </if>
+            <if test="pojo.timeTime != null"> #{pojo.timeTime}, </if>
+            <if test="pojo.hallId != null"> #{pojo.hallId}, </if>
+            <if test="pojo.movieId != null"> #{pojo.movieId}, </if>
+            <if test="pojo.choosedSeat != null"> #{pojo.choosedSeat}, </if>
+            <if test="pojo.unchoosedSeat != null"> #{pojo.unchoosedSeat}, </if>
+            <if test="pojo.saleSeat != null"> #{pojo.saleSeat}, </if>
+            <if test="pojo.timeCreate != null"> #{pojo.timeCreate}, </if>
+            <if test="pojo.timeModified != null"> #{pojo.timeModified}, </if>
+        </trim>
+    </insert>
+
+<!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO time_table(
+        <include refid="all_column"/>
+        )VALUES
+        <foreach collection="pojos" item="pojo" index="index" separator=",">
+            (
+            #{pojo.id},
+            #{pojo.timeTime},
+            #{pojo.hallId},
+            #{pojo.movieId},
+            #{pojo.choosedSeat},
+            #{pojo.unchoosedSeat},
+            #{pojo.saleSeat},
+            #{pojo.timeCreate},
+            #{pojo.timeModified}
+            )
+        </foreach>
+    </insert>
+
+<!--auto generated Code-->
+    <update id="update">
+        UPDATE time_table
+        <set>
+            <if test="pojo.id != null"> id = #{pojo.id}, </if>
+            <if test="pojo.timeTime != null"> time_time = #{pojo.timeTime}, </if>
+            <if test="pojo.hallId != null"> hall_id = #{pojo.hallId}, </if>
+            <if test="pojo.movieId != null"> movie_id = #{pojo.movieId}, </if>
+            <if test="pojo.choosedSeat != null"> choosed_seat = #{pojo.choosedSeat}, </if>
+            <if test="pojo.unchoosedSeat != null"> unchoosed_seat = #{pojo.unchoosedSeat}, </if>
+            <if test="pojo.saleSeat != null"> sale_seat = #{pojo.saleSeat}, </if>
+            <if test="pojo.timeCreate != null"> time_create = #{pojo.timeCreate}, </if>
+            <if test="pojo.timeModified != null"> time_modified = #{pojo.timeModified} </if>
+        </set>
+         WHERE id = #{pojo.id}
+    </update>
+
+<!--auto generated Code-->
+    <select id="select" resultMap="AllColumnMap">
+        SELECT <include refid="all_column"/>
+        FROM time_table
+        <where>
+            <if test="pojo.id != null"> AND id = #{pojo.id} </if>
+            <if test="pojo.timeTime != null"> AND time_time = #{pojo.timeTime} </if>
+            <if test="pojo.hallId != null"> AND hall_id = #{pojo.hallId} </if>
+            <if test="pojo.movieId != null"> AND movie_id = #{pojo.movieId} </if>
+            <if test="pojo.choosedSeat != null"> AND choosed_seat = #{pojo.choosedSeat} </if>
+            <if test="pojo.unchoosedSeat != null"> AND unchoosed_seat = #{pojo.unchoosedSeat} </if>
+            <if test="pojo.saleSeat != null"> AND sale_seat = #{pojo.saleSeat} </if>
+            <if test="pojo.timeCreate != null"> AND time_create = #{pojo.timeCreate} </if>
+            <if test="pojo.timeModified != null"> AND time_modified = #{pojo.timeModified} </if>
+        </where>
+        LIMIT 1000 
+    </select>
+
+<!--auto generated Code-->
+    <delete id="delete">
+        DELETE FROM time_table where id = #{id}
+    </delete>
+</mapper>

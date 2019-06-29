@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.bms.dao.CinemaTableDao">
+
+<!--auto generated Code-->
+    <resultMap id="AllColumnMap" type="cn.bms.pojo.CinemaTable">
+        <result column="id" property="id"/>
+        <result column="cinema_name" property="cinemaName"/>
+        <result column="cinema_address" property="cinemaAddress"/>
+        <result column="cinema_create" property="cinemaCreate"/>
+        <result column="cinema_modified" property="cinemaModified"/>
+    </resultMap>
+
+<!--auto generated Code-->
+    <sql id="all_column">
+        id,
+        cinema_name,
+        cinema_address,
+        cinema_create,
+        cinema_modified
+    </sql>
+
+<!--auto generated Code-->
+    <insert id="insert">
+        INSERT INTO cinema_table
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null"> id, </if>
+            <if test="pojo.cinemaName != null"> cinema_name, </if>
+            <if test="pojo.cinemaAddress != null"> cinema_address, </if>
+            <if test="pojo.cinemaCreate != null"> cinema_create, </if>
+            <if test="pojo.cinemaModified != null"> cinema_modified, </if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null"> #{pojo.id}, </if>
+            <if test="pojo.cinemaName != null"> #{pojo.cinemaName}, </if>
+            <if test="pojo.cinemaAddress != null"> #{pojo.cinemaAddress}, </if>
+            <if test="pojo.cinemaCreate != null"> #{pojo.cinemaCreate}, </if>
+            <if test="pojo.cinemaModified != null"> #{pojo.cinemaModified}, </if>
+        </trim>
+    </insert>
+
+<!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO cinema_table(
+        <include refid="all_column"/>
+        )VALUES
+        <foreach collection="pojos" item="pojo" index="index" separator=",">
+            (
+            #{pojo.id},
+            #{pojo.cinemaName},
+            #{pojo.cinemaAddress},
+            #{pojo.cinemaCreate},
+            #{pojo.cinemaModified}
+            )
+        </foreach>
+    </insert>
+
+<!--auto generated Code-->
+    <update id="update">
+        UPDATE cinema_table
+        <set>
+            <if test="pojo.id != null"> id = #{pojo.id}, </if>
+            <if test="pojo.cinemaName != null"> cinema_name = #{pojo.cinemaName}, </if>
+            <if test="pojo.cinemaAddress != null"> cinema_address = #{pojo.cinemaAddress}, </if>
+            <if test="pojo.cinemaCreate != null"> cinema_create = #{pojo.cinemaCreate}, </if>
+            <if test="pojo.cinemaModified != null"> cinema_modified = #{pojo.cinemaModified} </if>
+        </set>
+         WHERE id = #{pojo.id}
+    </update>
+
+<!--auto generated Code-->
+    <select id="select" resultMap="AllColumnMap">
+        SELECT <include refid="all_column"/>
+        FROM cinema_table
+        <where>
+            <if test="pojo.id != null"> AND id = #{pojo.id} </if>
+            <if test="pojo.cinemaName != null"> AND cinema_name = #{pojo.cinemaName} </if>
+            <if test="pojo.cinemaAddress != null"> AND cinema_address = #{pojo.cinemaAddress} </if>
+            <if test="pojo.cinemaCreate != null"> AND cinema_create = #{pojo.cinemaCreate} </if>
+            <if test="pojo.cinemaModified != null"> AND cinema_modified = #{pojo.cinemaModified} </if>
+        </where>
+        LIMIT 1000 
+    </select>
+
+<!--auto generated Code-->
+    <delete id="delete">
+        DELETE FROM cinema_table where id = #{id}
+    </delete>
+</mapper>

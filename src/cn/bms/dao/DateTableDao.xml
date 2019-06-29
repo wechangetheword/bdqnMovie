@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.bms.dao.DateTableDao">
+
+<!--auto generated Code-->
+    <resultMap id="AllColumnMap" type="cn.bms.pojo.DateTable">
+        <result column="id" property="id"/>
+        <result column="movie_id" property="movieId"/>
+        <result column="date_time1" property="dateTime1"/>
+        <result column="date_time2" property="dateTime2"/>
+        <result column="date_time3" property="dateTime3"/>
+        <result column="date_create" property="dateCreate"/>
+        <result column="date_modified" property="dateModified"/>
+    </resultMap>
+
+<!--auto generated Code-->
+    <sql id="all_column">
+        id,
+        movie_id,
+        date_time1,
+        date_time2,
+        date_time3,
+        date_create,
+        date_modified
+    </sql>
+
+<!--auto generated Code-->
+    <insert id="insert">
+        INSERT INTO date_table
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null"> id, </if>
+            <if test="pojo.movieId != null"> movie_id, </if>
+            <if test="pojo.dateTime1 != null"> date_time1, </if>
+            <if test="pojo.dateTime2 != null"> date_time2, </if>
+            <if test="pojo.dateTime3 != null"> date_time3, </if>
+            <if test="pojo.dateCreate != null"> date_create, </if>
+            <if test="pojo.dateModified != null"> date_modified, </if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null"> #{pojo.id}, </if>
+            <if test="pojo.movieId != null"> #{pojo.movieId}, </if>
+            <if test="pojo.dateTime1 != null"> #{pojo.dateTime1}, </if>
+            <if test="pojo.dateTime2 != null"> #{pojo.dateTime2}, </if>
+            <if test="pojo.dateTime3 != null"> #{pojo.dateTime3}, </if>
+            <if test="pojo.dateCreate != null"> #{pojo.dateCreate}, </if>
+            <if test="pojo.dateModified != null"> #{pojo.dateModified}, </if>
+        </trim>
+    </insert>
+
+<!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO date_table(
+        <include refid="all_column"/>
+        )VALUES
+        <foreach collection="pojos" item="pojo" index="index" separator=",">
+            (
+            #{pojo.id},
+            #{pojo.movieId},
+            #{pojo.dateTime1},
+            #{pojo.dateTime2},
+            #{pojo.dateTime3},
+            #{pojo.dateCreate},
+            #{pojo.dateModified}
+            )
+        </foreach>
+    </insert>
+
+<!--auto generated Code-->
+    <update id="update">
+        UPDATE date_table
+        <set>
+            <if test="pojo.id != null"> id = #{pojo.id}, </if>
+            <if test="pojo.movieId != null"> movie_id = #{pojo.movieId}, </if>
+            <if test="pojo.dateTime1 != null"> date_time1 = #{pojo.dateTime1}, </if>
+            <if test="pojo.dateTime2 != null"> date_time2 = #{pojo.dateTime2}, </if>
+            <if test="pojo.dateTime3 != null"> date_time3 = #{pojo.dateTime3}, </if>
+            <if test="pojo.dateCreate != null"> date_create = #{pojo.dateCreate}, </if>
+            <if test="pojo.dateModified != null"> date_modified = #{pojo.dateModified} </if>
+        </set>
+         WHERE id = #{pojo.id}
+    </update>
+
+<!--auto generated Code-->
+    <select id="select" resultMap="AllColumnMap">
+        SELECT <include refid="all_column"/>
+        FROM date_table
+        <where>
+            <if test="pojo.id != null"> AND id = #{pojo.id} </if>
+            <if test="pojo.movieId != null"> AND movie_id = #{pojo.movieId} </if>
+            <if test="pojo.dateTime1 != null"> AND date_time1 = #{pojo.dateTime1} </if>
+            <if test="pojo.dateTime2 != null"> AND date_time2 = #{pojo.dateTime2} </if>
+            <if test="pojo.dateTime3 != null"> AND date_time3 = #{pojo.dateTime3} </if>
+            <if test="pojo.dateCreate != null"> AND date_create = #{pojo.dateCreate} </if>
+            <if test="pojo.dateModified != null"> AND date_modified = #{pojo.dateModified} </if>
+        </where>
+        LIMIT 1000 
+    </select>
+
+<!--auto generated Code-->
+    <delete id="delete">
+        DELETE FROM date_table where id = #{id}
+    </delete>
+</mapper>

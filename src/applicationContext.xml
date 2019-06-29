@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+        <!--spring框架的配置文件-->
+        <!--1配置数据源-->
+        <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+            <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+            <property name="url" value="jdbc:mysql://172.16.0.135:3306/smbms"/>
+            <property name="username" value="root"/>
+            <property name="password" value="123456"/>
+        </bean>
+
+        <!--2通过数据源、mybatis、和具体的mapper映射文件作为参数，配置封装好的SqlSessionFactoryBean-->
+        <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+            <property name="dataSource" ref="dataSource"></property>
+            <property name="configLocation" value="classpath:mybatis-config.xml"></property>
+            <property name="mapperLocations" value="classpath*:cn/bms/dao/*.xml"></property>
+        </bean>
+
+        <!--2批量为mapper文件对应的接口进行注入-->
+        <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+            <property name="basePackage" value="cn.smbms.dao"></property>
+        </bean>
+
+        <!--4注解注入-->
+        <!--注解扫描的包-->
+        <context:component-scan base-package="cn.bms.contrallor,cn.bms.aop,cn.bms.mservice.impl"></context:component-scan>
+
+        <!-- 5事务配置-->
+        <!--事务配置-->
+        <bean id="tx" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+            <property name="dataSource" ref="dataSource"></property>
+        </bean>
+        <!--事务切面-->
+        <aop:config>
+            <aop:pointcut id="pointcutId" expression="execution(* cn.bms.dao.*..*(..))"/>
+            <aop:advisor advice-ref="txAdisor" pointcut-ref="pointcutId"/>
+        </aop:config>
+        <!--事务传播机制-->
+        <tx:advice id="txAdisor" transaction-manager="tx">
+            <tx:attributes>
+                <tx:method name="select*" propagation="SUPPORTS"/>
+                <tx:method name="update*" propagation="REQUIRED"/>
+                <tx:method name="delete*" propagation="REQUIRED"/>
+                <tx:method name="insert*" propagation="REQUIRED"/>
+                <tx:method name="*" propagation="REQUIRED" read-only="false"/>
+            </tx:attributes>
+        </tx:advice>
+
+        <!--6注解定义切面-->
+    <!--    <aop:aspectj-autoproxy/>-->
+
+        <!--  6-2配置文件定义切面   -->
+        <!--<bean id="LoggerAOP" class="cn.smbms.aop.LoggerAOP"></bean>
+
+        <aop:config>
+            <aop:pointcut id="pointcutId" expression="execution(* cn.smbms.biz.*..*(..))"/>
+            <aop:aspect ref="LoggerAOP">
+                <aop:before method="loggerBefore" pointcut-ref="pointcutId"></aop:before>
+                <aop:after-returning method="afterRunning" pointcut-ref="pointcutId" returning="object"></aop:after-returning>
+                <aop:after-throwing method="throwLogger" pointcut-ref="pointcutId" throwing="runtimeException"></aop:after-throwing>
+                <aop:around method="around" pointcut-ref="pointcutId" ></aop:around>
+                <aop:after method="after" pointcut-ref="pointcutId" ></aop:after>
+            </aop:aspect>
+        </aop:config>-->
+
+</beans>

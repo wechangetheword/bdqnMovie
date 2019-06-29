@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.bms.dao.UserTableDao">
+
+<!--auto generated Code-->
+    <resultMap id="AllColumnMap" type="cn.bms.pojo.UserTable">
+        <result column="id" property="id"/>
+        <result column="user_phone" property="userPhone"/>
+        <result column="password" property="password"/>
+        <result column="date_create" property="dateCreate"/>
+        <result column="date_modified" property="dateModified"/>
+    </resultMap>
+
+<!--auto generated Code-->
+    <sql id="all_column">
+        id,
+        user_phone,
+        password,
+        date_create,
+        date_modified
+    </sql>
+
+<!--auto generated Code-->
+    <insert id="insert">
+        INSERT INTO user_table
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null"> id, </if>
+            <if test="pojo.userPhone != null"> user_phone, </if>
+            <if test="pojo.password != null"> password, </if>
+            <if test="pojo.dateCreate != null"> date_create, </if>
+            <if test="pojo.dateModified != null"> date_modified, </if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null"> #{pojo.id}, </if>
+            <if test="pojo.userPhone != null"> #{pojo.userPhone}, </if>
+            <if test="pojo.password != null"> #{pojo.password}, </if>
+            <if test="pojo.dateCreate != null"> #{pojo.dateCreate}, </if>
+            <if test="pojo.dateModified != null"> #{pojo.dateModified}, </if>
+        </trim>
+    </insert>
+
+<!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO user_table(
+        <include refid="all_column"/>
+        )VALUES
+        <foreach collection="pojos" item="pojo" index="index" separator=",">
+            (
+            #{pojo.id},
+            #{pojo.userPhone},
+            #{pojo.password},
+            #{pojo.dateCreate},
+            #{pojo.dateModified}
+            )
+        </foreach>
+    </insert>
+
+<!--auto generated Code-->
+    <update id="update">
+        UPDATE user_table
+        <set>
+            <if test="pojo.id != null"> id = #{pojo.id}, </if>
+            <if test="pojo.userPhone != null"> user_phone = #{pojo.userPhone}, </if>
+            <if test="pojo.password != null"> password = #{pojo.password}, </if>
+            <if test="pojo.dateCreate != null"> date_create = #{pojo.dateCreate}, </if>
+            <if test="pojo.dateModified != null"> date_modified = #{pojo.dateModified} </if>
+        </set>
+         WHERE id = #{pojo.id}
+    </update>
+
+<!--auto generated Code-->
+    <select id="select" resultMap="AllColumnMap">
+        SELECT <include refid="all_column"/>
+        FROM user_table
+        <where>
+            <if test="pojo.id != null"> AND id = #{pojo.id} </if>
+            <if test="pojo.userPhone != null"> AND user_phone = #{pojo.userPhone} </if>
+            <if test="pojo.password != null"> AND password = #{pojo.password} </if>
+            <if test="pojo.dateCreate != null"> AND date_create = #{pojo.dateCreate} </if>
+            <if test="pojo.dateModified != null"> AND date_modified = #{pojo.dateModified} </if>
+        </where>
+        LIMIT 1000 
+    </select>
+
+<!--auto generated Code-->
+    <delete id="delete">
+        DELETE FROM user_table where id = #{id}
+    </delete>
+</mapper>
