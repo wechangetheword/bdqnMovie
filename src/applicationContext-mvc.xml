@@ -19,8 +19,8 @@
     <!--3配置视图解析器-->
     <!--页面前缀和页面后缀-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/pages/"></property>
-        <property name="suffix" value=".jsp"></property>
+        <property name="prefix" value="/statics/pages/"></property>
+        <property name="suffix" value=".html"></property>
     </bean>
 
     <!--4配置文件上传所需配置-->
@@ -33,6 +33,10 @@
     <!--5配置静态文件-->
     <!--配置到具体的静态文件-->
     <!--mapping是访问路径， location是本地具体路径-->
-<!--    <mvc:resources mapping="/upload/**" location="/upload/"></mvc:resources>-->
-    
+    <mvc:resources mapping="/statics/css/**" location="/statics/css/"></mvc:resources>
+    <mvc:resources mapping="/statics/image/**" location="/statics/image/"></mvc:resources>
+    <mvc:resources mapping="/statics/js/**" location="/statics/js/"></mvc:resources>
+    <mvc:resources mapping="/statics/pages/**" location="/statics/pages/"></mvc:resources>
+
+
 </beans>
