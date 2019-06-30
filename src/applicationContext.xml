@@ -27,12 +27,12 @@
 
         <!--2批量为mapper文件对应的接口进行注入-->
         <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-            <property name="basePackage" value="cn.smbms.dao"></property>
+            <property name="basePackage" value="cn.bms.dao"></property>
         </bean>
 
         <!--4注解注入-->
         <!--注解扫描的包-->
-        <context:component-scan base-package="cn.bms.contrallor,cn.bms.aop,cn.bms.mservice.impl"></context:component-scan>
+        <context:component-scan base-package="cn.bms.contrallor,cn.bms.aop,cn.bms.service.impl"></context:component-scan>
 
         <!-- 5事务配置-->
         <!--事务配置-->
