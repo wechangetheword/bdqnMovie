@@ -20,8 +20,9 @@
     <!--页面前缀和页面后缀-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/statics/pages/"></property>
-        <property name="suffix" value=".html"></property>
+        <property name="suffix" value=".jsp"></property>
     </bean>
+
 
     <!--4配置文件上传所需配置-->
     <!-- id属性必须是这样的-->
@@ -37,6 +38,25 @@
     <mvc:resources mapping="/statics/image/**" location="/statics/image/"></mvc:resources>
     <mvc:resources mapping="/statics/js/**" location="/statics/js/"></mvc:resources>
     <mvc:resources mapping="/statics/pages/**" location="/statics/pages/"></mvc:resources>
+
+
+    <!--傅健 配置的静态文件-->
+    <mvc:resources mapping="/admin_pages/css/**" location="/admin_pages/css/"></mvc:resources>
+    <mvc:resources mapping="/admin_pages/fonts/**" location="/admin_pages/fonts/"></mvc:resources>
+    <mvc:resources mapping="/admin_pages/html/**" location="/admin_pages/html/"></mvc:resources>
+    <mvc:resources mapping="/admin_pages/images/**" location="/admin_pages/images/"></mvc:resources>
+    <mvc:resources mapping="/admin_pages/images/pic/**" location="/admin_pages/images/pic/"></mvc:resources>
+    <mvc:resources mapping="/admin_pages/js/**" location="/admin_pages/js/"></mvc:resources>
+
+    <mvc:resources mapping="/admin_pages/lib/layui/**" location="/admin_pages/lib/layui/"></mvc:resources>
+    <mvc:resources mapping="/admin_pages/lib/layui/css/**" location="/admin_pages/lib/layui/css/"></mvc:resources>
+    <mvc:resources mapping="/admin_pages/lib/layui/css/modules/**" location="/admin_pages/lib/layui/css/modules/"></mvc:resources>
+    <mvc:resources mapping="/admin_pages/lib/layui/css/modules/layer/**" location="/admin_pages/lib/layui/css/modules/layer/"></mvc:resources>
+    <mvc:resources mapping="/admin_pages/lib/layui/css/modules/layer/default/**" location="/admin_pages/lib/layui/css/modules/layer/default/"></mvc:resources>
+    <mvc:resources mapping="/admin_pages/lib/layui/css/modules/laydate/default/**" location="/admin_pages/lib/layui/css/modules/laydate/default/"></mvc:resources>
+
+    <mvc:resources mapping="/admin_pages/lib/layui/font/**" location="/admin_pages/lib/layui/font/"></mvc:resources>
+    <!--傅健 配置的静态文件-->
 
 
 </beans>
