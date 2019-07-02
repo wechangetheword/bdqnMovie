@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="cn.bms.dao.OrderTableDao">
+<mapper namespace="src.dao.OrderTableDao">
 
 <!--auto generated Code-->
-    <resultMap id="AllColumnMap" type="cn.bms.pojo.OrderTable">
+    <resultMap id="AllColumnMap" type=".OrderTable">
         <result column="id" property="id"/>
         <result column="user_id" property="userId"/>
         <result column="movie_id" property="movieId"/>
@@ -13,6 +13,9 @@
         <result column="seat_id" property="seatId"/>
         <result column="price" property="price"/>
         <result column="total_price" property="totalPrice"/>
+        <result column="date" property="date"/>
+        <result column="out_trade_no" property="outTradeNo"/>
+        <result column="trade_state" property="tradeState"/>
         <result column="order_create" property="orderCreate"/>
         <result column="order_modified" property="orderModified"/>
     </resultMap>
@@ -28,6 +31,9 @@
         seat_id,
         price,
         total_price,
+        date,
+        out_trade_no,
+        trade_state,
         order_create,
         order_modified
     </sql>
@@ -45,6 +51,9 @@
             <if test="pojo.seatId != null"> seat_id, </if>
             <if test="pojo.price != null"> price, </if>
             <if test="pojo.totalPrice != null"> total_price, </if>
+            <if test="pojo.date != null"> date, </if>
+            <if test="pojo.outTradeNo != null"> out_trade_no, </if>
+            <if test="pojo.tradeState != null"> trade_state, </if>
             <if test="pojo.orderCreate != null"> order_create, </if>
             <if test="pojo.orderModified != null"> order_modified, </if>
         </trim>
@@ -59,6 +68,9 @@
             <if test="pojo.seatId != null"> #{pojo.seatId}, </if>
             <if test="pojo.price != null"> #{pojo.price}, </if>
             <if test="pojo.totalPrice != null"> #{pojo.totalPrice}, </if>
+            <if test="pojo.date != null"> #{pojo.date}, </if>
+            <if test="pojo.outTradeNo != null"> #{pojo.outTradeNo}, </if>
+            <if test="pojo.tradeState != null"> #{pojo.tradeState}, </if>
             <if test="pojo.orderCreate != null"> #{pojo.orderCreate}, </if>
             <if test="pojo.orderModified != null"> #{pojo.orderModified}, </if>
         </trim>
@@ -80,6 +92,9 @@
             #{pojo.seatId},
             #{pojo.price},
             #{pojo.totalPrice},
+            #{pojo.date},
+            #{pojo.outTradeNo},
+            #{pojo.tradeState},
             #{pojo.orderCreate},
             #{pojo.orderModified}
             )
@@ -99,6 +114,9 @@
             <if test="pojo.seatId != null"> seat_id = #{pojo.seatId}, </if>
             <if test="pojo.price != null"> price = #{pojo.price}, </if>
             <if test="pojo.totalPrice != null"> total_price = #{pojo.totalPrice}, </if>
+            <if test="pojo.date != null"> date = #{pojo.date}, </if>
+            <if test="pojo.outTradeNo != null"> out_trade_no = #{pojo.outTradeNo}, </if>
+            <if test="pojo.tradeState != null"> trade_state = #{pojo.tradeState}, </if>
             <if test="pojo.orderCreate != null"> order_create = #{pojo.orderCreate}, </if>
             <if test="pojo.orderModified != null"> order_modified = #{pojo.orderModified} </if>
         </set>
@@ -119,6 +137,9 @@
             <if test="pojo.seatId != null"> AND seat_id = #{pojo.seatId} </if>
             <if test="pojo.price != null"> AND price = #{pojo.price} </if>
             <if test="pojo.totalPrice != null"> AND total_price = #{pojo.totalPrice} </if>
+            <if test="pojo.date != null"> AND date = #{pojo.date} </if>
+            <if test="pojo.outTradeNo != null"> AND out_trade_no = #{pojo.outTradeNo} </if>
+            <if test="pojo.tradeState != null"> AND trade_state = #{pojo.tradeState} </if>
             <if test="pojo.orderCreate != null"> AND order_create = #{pojo.orderCreate} </if>
             <if test="pojo.orderModified != null"> AND order_modified = #{pojo.orderModified} </if>
         </where>

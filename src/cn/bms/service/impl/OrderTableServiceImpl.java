@@ -5,11 +5,14 @@ import cn.bms.pojo.OrderTable;
 import cn.bms.service.OrderTableService;
 import org.springframework.stereotype.Service;
 
+
 import javax.annotation.Resource;
 import java.util.List;
 
-@Service("orderTableServiceimpl")
-public class OrderTableServiceimpl implements OrderTableService {
+
+
+@Service
+public class OrderTableServiceImpl implements OrderTableService {
 
     @Resource
     private OrderTableDao orderTableDao;

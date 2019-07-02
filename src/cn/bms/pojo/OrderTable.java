@@ -15,24 +15,11 @@ public class OrderTable {
     private int seatId;     //座位id
     private double price;       //单价
     private double totalPrice;      //总价
+    private String date;       //日期
+    private String outTradeNo;     //订单号
+    private String tradeState;     //付款状态
     private Date orderCreate;       //创建时间
     private Date orderModified;         //修改时间
-
-    public Date getOrderCreate() {
-        return orderCreate;
-    }
-
-    public void setOrderCreate(Date orderCreate) {
-        this.orderCreate = orderCreate;
-    }
-
-    public Date getOrderModified() {
-        return orderModified;
-    }
-
-    public void setOrderModified(Date orderModified) {
-        this.orderModified = orderModified;
-    }
 
     public int getId() {
         return id;
@@ -104,5 +91,45 @@ public class OrderTable {
 
     public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getOutTradeNo() {
+        return outTradeNo;
+    }
+
+    public void setOutTradeNo(String outTradeNo) {
+        this.outTradeNo = outTradeNo;
+    }
+
+    public String getTradeState() {
+        return tradeState;
+    }
+
+    public void setTradeState(String tradeState) {
+        this.tradeState = tradeState;
+    }
+
+    public Date getOrderCreate() {
+        return orderCreate;
+    }
+
+    public void setOrderCreate(Date orderCreate) {
+        this.orderCreate = orderCreate;
+    }
+
+    public Date getOrderModified() {
+        return orderModified;
+    }
+
+    public void setOrderModified(Date orderModified) {
+        this.orderModified = orderModified;
     }
 }
